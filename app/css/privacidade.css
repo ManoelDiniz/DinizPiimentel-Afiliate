@@ -1,0 +1,92 @@
+.static-page {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 42px 36px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Título principal */
+.static-page h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+/* Data de atualização */
+.last-updated {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 40px;
+}
+
+/* Seções */
+.static-page section {
+  margin-bottom: 36px;
+}
+
+/* Títulos das seções */
+.static-page h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #1f2937;
+}
+
+/* Texto */
+.static-page p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 12px;
+}
+
+/* Destaque */
+.static-page strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Listas */
+.static-page ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.static-page li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Links */
+.static-page a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.static-page a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .static-page {
+    margin: 24px 16px;
+    padding: 28px 22px;
+  }
+
+  .static-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .static-page h2 {
+    font-size: 1.25rem;
+  }
+}

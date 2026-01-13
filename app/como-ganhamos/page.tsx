@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import '../css/como-ganhamos.css';
+
 
 export const metadata: Metadata = {
   title: 'Como Ganhamos Dinheiro',

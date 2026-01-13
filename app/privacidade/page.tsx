@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import '../css/privacidade.css';
 
 export const metadata: Metadata = {
   title: 'Política de Privacidade',

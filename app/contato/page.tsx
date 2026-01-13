@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import '../css/contato.css'
 
 export const metadata: Metadata = {
   title: 'Contato',
@@ -9,7 +10,7 @@ export default function ContatoPage() {
   return (
     <div className="static-page">
       <h1>Contato</h1>
-      
+
       <section>
         <h2>Fale Conosco</h2>
         <p>
@@ -19,26 +20,13 @@ export default function ContatoPage() {
 
       <section>
         <h2>📧 Email</h2>
-        <p>
-          <strong>contato@seudominio.com.br</strong>
-        </p>
-        <p>
-          Respondemos em até 48 horas úteis.
-        </p>
-      </section>
-
-      <section>
-        <h2>💬 Redes Sociais</h2>
-        <ul>
-          <li>Instagram: @seudominio</li>
-          <li>Twitter: @seudominio</li>
-          <li>Facebook: /seudominio</li>
-        </ul>
+        <p><strong>dinizpiimentel@gmail.com</strong></p>
+        <p>Respondemos em até 48 horas úteis.</p>
       </section>
 
       <section>
         <h2>❓ Dúvidas Frequentes</h2>
-        
+
         <div className="faq">
           <h3>Como vocês escolhem os produtos?</h3>
           <p>
@@ -76,9 +64,7 @@ export default function ContatoPage() {
         <p>
           Para propostas de parceria ou colaboração, entre em contato através do email:
         </p>
-        <p>
-          <strong>parcerias@seudominio.com.br</strong>
-        </p>
+        <p><strong>dinizpiimentel@gmail.com</strong></p>
       </section>
     </div>
   );
