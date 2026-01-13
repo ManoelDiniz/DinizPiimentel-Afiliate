@@ -9,9 +9,14 @@ interface ProductPageProps {
 export default function ProductPage({ product }: ProductPageProps) {
   const { frontmatter, content } = product;
 
-  const discount = Math.round(
-    ((frontmatter.oldPrice - frontmatter.currentPrice) / frontmatter.oldPrice) * 100
-  );
+  // Garantir que os preços são números válidos
+  const currentPrice = Number(frontmatter.currentPrice) || 0;
+  const oldPrice = Number(frontmatter.oldPrice) || 0;
+
+  const discount = oldPrice > 0 ? Math.round(
+    ((oldPrice - currentPrice) / oldPrice) * 100
+  ) : 0;
+  const savings = oldPrice - currentPrice;
 
   const handleAffiliateClick = () => {
     // Tracking de clique no link de afiliado
@@ -19,7 +24,7 @@ export default function ProductPage({ product }: ProductPageProps) {
       (window as any).gtag('event', 'click', {
         event_category: 'affiliate',
         event_label: frontmatter.slug,
-        value: frontmatter.currentPrice,
+        value: currentPrice,
       });
     }
   };
@@ -39,7 +44,7 @@ export default function ProductPage({ product }: ProductPageProps) {
       '@type': 'Offer',
       url: frontmatter.affiliateLink,
       priceCurrency: 'BRL',
-      price: frontmatter.currentPrice,
+      price: currentPrice,
       priceValidUntil: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
       availability: frontmatter.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       seller: {
@@ -65,10 +70,10 @@ export default function ProductPage({ product }: ProductPageProps) {
         <div className="product-hero">
           <div className="price-box">
             <div className="discount-badge">{discount}% OFF</div>
-            <div className="price-old">De R$ {frontmatter.oldPrice.toFixed(2)}</div>
-            <div className="price-current">Por R$ {frontmatter.currentPrice.toFixed(2)}</div>
+          <div className="price-old">De R$ {oldPrice.toFixed(2)}</div>
+          <div className="price-current">R$ {currentPrice.toFixed(2)}</div>
             <div className="savings">
-              Economize R$ {(frontmatter.oldPrice - frontmatter.currentPrice).toFixed(2)}
+              Economize R$ {savings.toFixed(2)}
             </div>
           </div>
 

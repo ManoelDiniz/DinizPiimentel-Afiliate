@@ -9,9 +9,13 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { frontmatter } = product;
   
-  const discount = Math.round(
-    ((frontmatter.oldPrice - frontmatter.currentPrice) / frontmatter.oldPrice) * 100
-  );
+  // Garantir que os preços são números válidos
+  const currentPrice = Number(frontmatter.currentPrice) || 0;
+  const oldPrice = Number(frontmatter.oldPrice) || 0;
+  
+  const discount = oldPrice > 0 ? Math.round(
+    ((oldPrice - currentPrice) / oldPrice) * 100
+  ) : 0;
 
   return (
     <Link href={`/produto/${frontmatter.slug}`} className="product-card">
@@ -40,8 +44,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
         
         <div className="card-price">
-          <span className="price-old">R$ {frontmatter.oldPrice.toFixed(2)}</span>
-          <span className="price-current">R$ {frontmatter.currentPrice.toFixed(2)}</span>
+          <span className="price-old">R$ {oldPrice.toFixed(2)}</span>
+          <span className="price-current">R$ {currentPrice.toFixed(2)}</span>
         </div>
         
         <div className="card-marketplace">
