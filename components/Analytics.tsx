@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 
 export default function Analytics() {
   useEffect(() => {
-    // IMPORTANTE: Substituir pelo seu ID do Google Analytics
-    const GA_ID = 'G-XXXXXXXXXX'; // ALTERAR AQUI
+    // Google Analytics ID
+    const GA_ID = 'G-W6T7QF09ZQ';
     
-    if (typeof window === 'undefined' || !GA_ID || GA_ID === 'G-XXXXXXXXXX') {
+    if (typeof window === 'undefined' || !GA_ID) {
       return;
     }
 
