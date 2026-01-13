@@ -43,7 +43,7 @@ export default function RootLayout({
         <footer className="footer">
           <div className="footer-content">
             <div className="footer-brand">
-              <h3>💎 Diniz Pimentel</h3>
+              <h3>💎 Diniz Promoções</h3>
               <p>As melhores ofertas da internet</p>
             </div>
             <div className="footer-links">
