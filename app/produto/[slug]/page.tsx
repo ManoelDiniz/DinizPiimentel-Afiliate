@@ -28,12 +28,26 @@ export async function generateMetadata({
     ((frontmatter.oldPrice - frontmatter.currentPrice) / frontmatter.oldPrice) * 100
   );
 
+  // Palavras-chave de intenção de compra
+  const keywords = [
+    `${frontmatter.title}`,
+    `${frontmatter.title} preço`,
+    `${frontmatter.title} barato`,
+    `onde comprar ${frontmatter.title}`,
+    `${frontmatter.title} promoção`,
+    `${frontmatter.title} desconto`,
+    `${frontmatter.title} vale a pena`,
+    `melhor preço ${frontmatter.title}`,
+    frontmatter.category,
+  ].join(', ');
+
   return {
-    title: `${frontmatter.title} - ${discount}% OFF`,
-    description: `${frontmatter.title} por apenas R$ ${frontmatter.currentPrice.toFixed(2)}. De R$ ${frontmatter.oldPrice.toFixed(2)} por R$ ${frontmatter.currentPrice.toFixed(2)}. Aproveite essa oferta incrível!`,
+    title: `${frontmatter.title} - ${discount}% OFF | Melhor Preço ${new Date().getFullYear()}`,
+    description: `✓ ${frontmatter.title} com ${discount}% de desconto! De R$ ${frontmatter.oldPrice.toFixed(2)} por apenas R$ ${frontmatter.currentPrice.toFixed(2)}. ⭐ ${frontmatter.rating}/5 (${frontmatter.reviewCount} avaliações). Frete rápido. Compre agora!`,
+    keywords,
     openGraph: {
-      title: `${frontmatter.title} - ${discount}% OFF`,
-      description: `Oferta imperdível! ${discount}% de desconto. Compre agora!`,
+      title: `${frontmatter.title} - ${discount}% OFF | R$ ${frontmatter.currentPrice.toFixed(2)}`,
+      description: `🔥 OFERTA: ${discount}% OFF! De R$ ${frontmatter.oldPrice.toFixed(2)} por R$ ${frontmatter.currentPrice.toFixed(2)}. ⭐ ${frontmatter.rating}/5 estrelas. Entrega rápida!`,
       images: [
         {
           url: frontmatter.image || '/images/default-product.jpg',
@@ -52,6 +66,26 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: `/produto/${params.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    other: {
+      'price:amount': frontmatter.currentPrice.toString(),
+      'price:currency': 'BRL',
+      'product:availability': frontmatter.inStock ? 'in stock' : 'out of stock',
+      'product:condition': 'new',
+      'product:price:amount': frontmatter.currentPrice.toString(),
+      'product:price:currency': 'BRL',
+      'product:retailer_item_id': params.slug,
     },
   };
 }

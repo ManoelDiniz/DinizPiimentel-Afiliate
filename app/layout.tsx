@@ -1,19 +1,31 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Analytics from '@/components/Analytics';
+import SeoMetrics from '@/components/SeoMetrics';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dinizpiimentel.com.br'),
   title: {
-    default: 'Ofertas e Promoções | Diniz Promoções',
+    default: 'Melhores Ofertas e Promoções 2026 | Diniz Promoções',
     template: '%s | Diniz Promoções',
   },
-  description: 'Encontre as melhores ofertas e promoções da internet. Produtos selecionados e atualizados diariamente.',
-  keywords: ['ofertas', 'promoções', 'descontos', 'produtos', 'compras'],
+  description: '🔥 Ofertas imperdíveis atualizadas diariamente! Produtos testados com até 70% OFF. Compare preços, veja avaliações reais e economize. ✓ Frete grátis ✓ Cashback',
+  keywords: ['ofertas', 'promoções', 'descontos', 'produtos baratos', 'compras online', 'cupom desconto', 'cashback', 'frete grátis'],
   authors: [{ name: 'Diniz Pimentel' }],
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'seu-codigo-google-search-console',
   },
 };
 
@@ -37,6 +49,8 @@ export default function RootLayout({
             <a href="/contato">Contato</a>
           </div>
         </nav>
+        
+        <Breadcrumbs />
         
         {children}
         
@@ -69,6 +83,7 @@ export default function RootLayout({
         </footer>
 
         <Analytics />
+        <SeoMetrics />
       </body>
     </html>
   );
