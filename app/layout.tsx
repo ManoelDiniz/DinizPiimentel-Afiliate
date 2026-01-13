@@ -5,8 +5,8 @@ import Analytics from '@/components/Analytics';
 export const metadata: Metadata = {
   metadataBase: new URL('https://dinizpiimentel.com.br'),
   title: {
-    default: 'Ofertas e Promoções | Diniz Pimentel',
-    template: '%s | Diniz Pimentel',
+    default: 'Ofertas e Promoções | Diniz Promoções',
+    template: '%s | Diniz Promoções',
   },
   description: 'Encontre as melhores ofertas e promoções da internet. Produtos selecionados e atualizados diariamente.',
   keywords: ['ofertas', 'promoções', 'descontos', 'produtos', 'compras'],
@@ -28,7 +28,7 @@ export default function RootLayout({
         <nav className="nav">
           <a href="/" className="logo">
             <span className="logo-icon">💎</span>
-            <span className="logo-text">Diniz Pimentel</span>
+            <span className="logo-text">Diniz Promoções</span>
           </a>
           <div className="nav-links">
             <a href="/sobre">Sobre</a>
