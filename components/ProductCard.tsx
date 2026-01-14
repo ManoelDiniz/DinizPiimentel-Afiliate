@@ -9,7 +9,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
   const { frontmatter } = product;
   
-  // Garantir que os preços são números válidos
+  
   const currentPrice = Number(frontmatter.currentPrice) || 0;
   const oldPrice = Number(frontmatter.oldPrice) || 0;
   
@@ -19,7 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/produto/${frontmatter.slug}`} className="product-card">
-      <div className="card-badge">{discount}% OFF</div>
+      
       
       {frontmatter.image && (
         <div className="card-image">
@@ -45,6 +45,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         
         <div className="card-price">
           <span className="price-old">R$ {oldPrice.toFixed(2)}</span>
+          {discount > 0 && <div className="card-badge">{discount}% OFF</div>}
           <span className="price-current">R$ {currentPrice.toFixed(2)}</span>
         </div>
         

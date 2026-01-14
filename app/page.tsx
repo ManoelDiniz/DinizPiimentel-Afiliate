@@ -40,6 +40,7 @@ export default async function Home() {
 
   return (
     <div className="container">
+      
       <header className="header">
         <div className="header-badge">🔥 Novidades</div>
         <h1 className="header-title">Ofertas Exclusivas</h1>

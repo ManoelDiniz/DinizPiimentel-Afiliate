@@ -44,7 +44,7 @@ export async function getAllProducts(): Promise<Product[]> {
   const filteredProducts = products
     .filter((product): product is Product => product !== null)
     .sort((a, b) => {
-      // Ordenar por data de atualização (mais recente primeiro)
+     
       return new Date(b.frontmatter.lastUpdated).getTime() - 
              new Date(a.frontmatter.lastUpdated).getTime();
     });

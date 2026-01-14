@@ -3,6 +3,7 @@ import './globals.css';
 import Analytics from '@/components/Analytics';
 import SeoMetrics from '@/components/SeoMetrics';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dinizpiimentel.com.br'),
@@ -37,10 +38,19 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
+        <link rel="icon" href="/logo/icone.ico" />        
         <nav className="nav">
+          
           <a href="/" className="logo">
-            <span className="logo-icon">💎</span>
-            <span className="logo-text">Diniz Promoções</span>
+            <Image
+              src="/logo/icone.ico"
+              alt="Diniz Promoções"
+              width={90}
+              height={80}
+              priority
+            />
+            <span className='text-logo'>Diniz Promoções</span>
+
           </a>
           <div className="nav-links">
             <a href="/sobre">Sobre</a>
