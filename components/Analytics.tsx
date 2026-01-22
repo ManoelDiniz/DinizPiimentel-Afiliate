@@ -4,14 +4,14 @@ import { useEffect } from 'react';
 
 export default function Analytics() {
   useEffect(() => {
-    // Google Analytics ID
+
     const GA_ID = 'G-W6T7QF09ZQ';
     
     if (typeof window === 'undefined' || !GA_ID) {
       return;
     }
 
-    // Carregar Google Analytics
+   
     const script1 = document.createElement('script');
     script1.async = true;
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;

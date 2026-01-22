@@ -11,9 +11,10 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [import('remark-gfm')],
     rehypePlugins: [],
   },
 })
+
 
 export default withMDX(nextConfig)

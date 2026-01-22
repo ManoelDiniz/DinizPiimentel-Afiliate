@@ -119,6 +119,12 @@ body {
   font-size: 0.9rem;
 }
 
+.prose table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .nav-links a:hover {
   color: var(--primary);
 }
